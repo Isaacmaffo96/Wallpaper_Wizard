@@ -1,4 +1,4 @@
-package org.wallpaperwizard;
+package org.wallpaperwizardapp;
 
 public class Main {
     public static void main(String[] args) {
