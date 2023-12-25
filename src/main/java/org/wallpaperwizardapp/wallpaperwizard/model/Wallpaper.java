@@ -8,6 +8,7 @@ import org.wallpaperwizardapp.wallpaperwizard.exceptions.PathDoesNotExistExcepti
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Wallpaper {
 
@@ -21,9 +22,33 @@ public class Wallpaper {
         System.out.println("[Wallpaper] Setting the wallpaper...");
 
         System.out.println("[Wallpaper] Checking the image path...");
-        if (!Files.exists(imagePath)) {
+
+        try {
+            if (!Files.exists(imagePath)) {
+                throw new PathDoesNotExistException("[Wallpaper] image path does not exist: " + imagePath);
+            }
+        } catch (Exception e) {
             System.out.println("[Wallpaper] Exception in image path!");
-            throw new PathDoesNotExistException("[Wallpaper] image path does not exist: " + imagePath);
+            e.printStackTrace();
+            //throw new PathDoesNotExistException("[Wallpaper] image path does not exist: " + imagePath);
+        }
+
+        System.out.println("[Wallpaper] Storing the image...");
+        ImageStorage imageStorage = new ImageStorage();
+        imageStorage.storeImage(imagePath);
+
+        String resourcePath = Wallpaper.class.getResource("/").getPath() + "images/" + imageStorage.getFileName(); // get the resources/image/filename in the file system
+        resourcePath = resourcePath.substring(1); // delete the prefix "/"
+        System.out.println("[Wallpaper] Resource path: " + resourcePath);
+
+        try {
+            if (!Files.exists(Paths.get(resourcePath))) {
+                throw new PathDoesNotExistException("[Wallpaper] resources image path does not exist: " + resourcePath);
+            }
+        } catch (Exception e) {
+            System.out.println("[Wallpaper] Exception in resources image path!");
+            e.printStackTrace();
+            //throw new PathDoesNotExistException("[Wallpaper] resources image path does not exist: " + resourcePath);
         }
 
         boolean result = User32.INSTANCE.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, imagePath.toString(), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
