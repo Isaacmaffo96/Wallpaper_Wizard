@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9d34f51-b054-4005-8af3-e3f036af5234" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/config/APIKeyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/config/RestTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/service/NasaAPIService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,15 +50,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/isaac/Downloads/jna-platform-jpms-5.14.0.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "spring.configuration.checksum": "58fd48f38d31f225dfe818ed4f1c9900",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -102,7 +110,8 @@
       <workItem from="1703498864755" duration="938000" />
       <workItem from="1703580216098" duration="931000" />
       <workItem from="1703582288832" duration="352000" />
-      <workItem from="1703582669788" duration="8119000" />
+      <workItem from="1703582669788" duration="16344000" />
+      <workItem from="1703606250817" duration="1892000" />
     </task>
     <servers />
   </component>
