@@ -42,7 +42,6 @@ public class Wallpaper {
      */
     public void setWallpaper(Path imagePath) throws PathDoesNotExistException {
 
-        System.out.println("------------------------------------------------------------------------");
         System.out.println("[Wallpaper] Setting the wallpaper...");
 
         System.out.println("[Wallpaper] Checking the image path...");
