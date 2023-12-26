@@ -5,12 +5,14 @@ target/
 dependency-reduced-pom.xml
 **/src/main/resources/images
 
+# Ignore application.properties
+/src/main/resources/application.properties
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-.idea/
 *.iws
 *.iml
 *.ipr
