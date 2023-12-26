@@ -9,9 +9,19 @@ import java.util.Comparator;
 
 public class ImageStorage {
 
-    // Specify the target directory within the resources folder
+    /**
+     * Specify the target directory within the resources folder
+     */
     private final String targetDirectory = "src/main/resources/images/";
+
+    /**
+     * Path of the image
+     */
     private Path imagePath;
+
+    /**
+     * name of the image file with extension (es .jpg)
+     */
     String fileName;
 
     public ImageStorage() {
