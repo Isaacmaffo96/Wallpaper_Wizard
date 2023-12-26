@@ -10,12 +10,36 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * The wallpaper class allows us to change the desktop background received from an image saved on the PC
+ */
 public class Wallpaper {
 
+    /**
+     * the constant SPI_SETDESKWALLPAPER represents the action to set the desktop wallpaper, and its value (20) is used
+     * as an identifier for this specific action in the SystemParametersInfo function.
+     */
     public static final int SPI_SETDESKWALLPAPER = 20;
+
+    /**
+     * the constant SPIF_UPDATEINIFILE set at 0x01 it's used as a flag indicating that when the desktop wallpaper is
+     * changed using SystemParametersInfo, the system should update the user's profile settings or the .ini file to
+     * reflect this change
+     */
     public static final int SPIF_UPDATEINIFILE = 0x01;
+
+    /**
+     * The constant SPIF_SENDCHANGE = 0x02 is used to specify that a system-wide setting change notification should be
+     * sent after applying the changes using SystemParametersInfo
+     */
     public static final int SPIF_SENDCHANGE = 0x02;
 
+    /**
+     * set the wallpaper given the path of the image
+     *
+     * @param imagePath path of the image
+     * @throws PathDoesNotExistException if the given path doesn't exist
+     */
     public void setWallpaper(Path imagePath) throws PathDoesNotExistException {
 
         System.out.println("------------------------------------------------------------------------");
@@ -37,6 +61,7 @@ public class Wallpaper {
         ImageStorage imageStorage = new ImageStorage();
         imageStorage.storeImage(imagePath);
 
+        /* only work in the IDE
         String resourcePath = Wallpaper.class.getResource("/").getPath() + "images/" + imageStorage.getFileName(); // get the resources/image/filename in the file system
         resourcePath = resourcePath.substring(1); // delete the prefix "/"
         System.out.println("[Wallpaper] Resource path: " + resourcePath);
@@ -50,6 +75,7 @@ public class Wallpaper {
             e.printStackTrace();
             //throw new PathDoesNotExistException("[Wallpaper] resources image path does not exist: " + resourcePath);
         }
+        */
 
         boolean result = User32.INSTANCE.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, imagePath.toString(), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
 
