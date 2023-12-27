@@ -17,20 +17,22 @@ public class Wallpaper {
      * the constant SPI_SETDESKWALLPAPER represents the action to set the desktop wallpaper, and its value (20) is used
      * as an identifier for this specific action in the SystemParametersInfo function.
      */
-    public static final int SPI_SETDESKWALLPAPER = 20;
+    private static final int SPI_SETDESKWALLPAPER = 20;
 
     /**
      * the constant SPIF_UPDATEINIFILE set at 0x01 it's used as a flag indicating that when the desktop wallpaper is
      * changed using SystemParametersInfo, the system should update the user's profile settings or the .ini file to
      * reflect this change
      */
-    public static final int SPIF_UPDATEINIFILE = 0x01;
+    private static final int SPIF_UPDATEINIFILE = 0x01;
 
     /**
      * The constant SPIF_SENDCHANGE = 0x02 is used to specify that a system-wide setting change notification should be
      * sent after applying the changes using SystemParametersInfo
      */
-    public static final int SPIF_SENDCHANGE = 0x02;
+    private static final int SPIF_SENDCHANGE = 0x02;
+
+    private Path wallpaperPath;
 
     /**
      * set the wallpaper given the path of the image
@@ -45,21 +47,34 @@ public class Wallpaper {
         System.out.println("[Wallpaper] Checking the image path...");
 
         try {
-            if (!Files.exists(imagePath)) {
+            // check if the path exist
+            if (!Files.exists(imagePath))
                 throw new PathDoesNotExistException("[Wallpaper] image path does not exist: " + imagePath);
-            }
+
+            // set the wallpaper path
+            this.wallpaperPath = imagePath;
+
+            // update the wallpaper
+            boolean result = User32.INSTANCE.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, wallpaperPath.toString(), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+
+            if (result)
+                System.out.println("[Wallpaper] wallpaper set successfully");
+            else
+                System.out.println("[Wallpaper] an error occurred!");
+
         } catch (Exception e) {
             System.out.println("[Wallpaper] Exception in image path!");
             e.printStackTrace();
         }
 
-        boolean result = User32.INSTANCE.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, imagePath.toString(), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
+    }
 
-        if (result)
-            System.out.println("[Wallpaper] wallpaper set successfully");
-        else
-            System.out.println("[Wallpaper] an error occurred:");
+    public Path getWallpaperPath() {
+        return wallpaperPath;
+    }
 
+    public String getWallpaperPathString() {
+        return wallpaperPath.toString();
     }
 
     /**
