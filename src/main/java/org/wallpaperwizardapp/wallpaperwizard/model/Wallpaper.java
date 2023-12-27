@@ -1,6 +1,5 @@
 package org.wallpaperwizardapp.wallpaperwizard.model;
 
-
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.win32.W32APIOptions;
@@ -8,7 +7,6 @@ import org.wallpaperwizardapp.wallpaperwizard.exceptions.PathDoesNotExistExcepti
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * The wallpaper class allows us to change the desktop background received from an image saved on the PC
@@ -53,28 +51,7 @@ public class Wallpaper {
         } catch (Exception e) {
             System.out.println("[Wallpaper] Exception in image path!");
             e.printStackTrace();
-            //throw new PathDoesNotExistException("[Wallpaper] image path does not exist: " + imagePath);
         }
-
-        System.out.println("[Wallpaper] Storing the image...");
-        ImageStorage imageStorage = new ImageStorage();
-        imageStorage.storeImage(imagePath);
-
-        /* only work in the IDE
-        String resourcePath = Wallpaper.class.getResource("/").getPath() + "images/" + imageStorage.getFileName(); // get the resources/image/filename in the file system
-        resourcePath = resourcePath.substring(1); // delete the prefix "/"
-        System.out.println("[Wallpaper] Resource path: " + resourcePath);
-
-        try {
-            if (!Files.exists(Paths.get(resourcePath))) {
-                throw new PathDoesNotExistException("[Wallpaper] resources image path does not exist: " + resourcePath);
-            }
-        } catch (Exception e) {
-            System.out.println("[Wallpaper] Exception in resources image path!");
-            e.printStackTrace();
-            //throw new PathDoesNotExistException("[Wallpaper] resources image path does not exist: " + resourcePath);
-        }
-        */
 
         boolean result = User32.INSTANCE.SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, imagePath.toString(), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE);
 
@@ -82,8 +59,6 @@ public class Wallpaper {
             System.out.println("[Wallpaper] wallpaper set successfully");
         else
             System.out.println("[Wallpaper] an error occurred:");
-
-        System.out.println("------------------------------------------------------------------------");
 
     }
 
