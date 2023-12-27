@@ -83,15 +83,19 @@ public class ImageResizer {
         int screenHeight = 1080;
 
         try {
+            /*
             // single monitor configuration
-            //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-            //int screenWidth = screenSize.width;
-            //int screenHeight = screenSize.height;
+            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+            screenWidth = screenSize.width;
+            screenHeight = screenSize.height;
+            */
 
+            ///*
             // multi-monitor configuration
             GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
             screenWidth = gd.getDisplayMode().getWidth();
             screenHeight = gd.getDisplayMode().getHeight();
+            //*/
         }
         catch (Exception e){
             System.out.println("[ImageResizer] Exception in retrieving the screen width and height of the user's display");

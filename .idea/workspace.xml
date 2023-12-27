@@ -5,38 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9d34f51-b054-4005-8af3-e3f036af5234" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/ImageResizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/util/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/controller/ImageDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/controller/ImageDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/ImageSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/ImageSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/Wallpaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/Wallpaper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/service/NasaAPIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/service/NasaAPIService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/exceptions/PathDoesNotExistException.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/exceptions/PathDoesNotExistException.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/exceptions/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/exceptions/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/exceptions/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/exceptions/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/Wallpaper.User32.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/Wallpaper.User32.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/Wallpaper.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/Wallpaper.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/model/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/org/wallpaperwizardapp/wallpaperwizard/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/overview-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/javadoc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/javadoc/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/ImageResizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wallpaperwizardapp/wallpaperwizard/model/ImageResizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +109,7 @@
       <workItem from="1703582669788" duration="16344000" />
       <workItem from="1703606250817" duration="1998000" />
       <workItem from="1703675306716" duration="1343000" />
-      <workItem from="1703676719436" duration="21405000" />
+      <workItem from="1703676719436" duration="23897000" />
     </task>
     <servers />
   </component>
