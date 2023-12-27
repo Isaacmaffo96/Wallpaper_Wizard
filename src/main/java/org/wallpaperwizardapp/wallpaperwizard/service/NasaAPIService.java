@@ -52,10 +52,6 @@ public class NasaAPIService {
             output = (hd) ?
                     JsonHandler.jsonExtractKey("hdurl", jsonResponse) : // hd url
                     JsonHandler.jsonExtractKey("url", jsonResponse); // no hd url
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (JsonHandlerException e) {
-            e.printStackTrace();
         }  catch (Exception e) {
             e.printStackTrace();
         } finally {

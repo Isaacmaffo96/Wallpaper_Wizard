@@ -3,6 +3,8 @@ package org.wallpaperwizardapp.wallpaperwizard;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.wallpaperwizardapp.wallpaperwizard.controller.ImageDownloader;
 import org.wallpaperwizardapp.wallpaperwizard.exceptions.PathDoesNotExistException;
+import org.wallpaperwizardapp.wallpaperwizard.model.ImageResizer;
+import org.wallpaperwizardapp.wallpaperwizard.model.ImageSaver;
 import org.wallpaperwizardapp.wallpaperwizard.model.Wallpaper;
 
 import org.springframework.boot.SpringApplication;
@@ -21,15 +23,25 @@ public class Main {
         // Get the NASAImageService bean
         NasaAPIService nasaImageService = context.getBean(NasaAPIService.class);
 
-        String imageUrl = nasaImageService.getImageOfTheDayUrl(true);
-
+        // Get the ImageDownloader bean
         ImageDownloader imageDownloader = context.getBean(ImageDownloader.class);
+
+        // Get te i mage of the day URL
+        String imageUrl = nasaImageService.getImageOfTheDayUrl(true);
 
         // Print the extracted image URL
         System.out.println("[Main] Image URL: " + imageUrl);
 
-        imageDownloader.downloadImage(imageUrl);
+        // Construct a Class to Store te image
+        ImageSaver imageSaver = new ImageSaver();
 
+        // Download the image
+        imageDownloader.downloadImage(imageUrl, imageSaver);
+
+        // Resize the image
+        ImageResizer.resizeImage(imageSaver.getDownloadedImagePathString(), false);
+
+        // Set the wallpaper
         Wallpaper wallpaper = new Wallpaper();
         try {
             wallpaper.setWallpaper(imageDownloader.getDownloadedImagePath());
@@ -37,6 +49,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        System.out.println("[Main] Closing Wallpaper Wizard...");
         System.out.println("------------------------------------------------------------------------");
 
         // Close the Spring context

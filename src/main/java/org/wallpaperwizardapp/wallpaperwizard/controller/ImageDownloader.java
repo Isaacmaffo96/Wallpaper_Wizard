@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.wallpaperwizardapp.wallpaperwizard.exceptions.PathDoesNotExistException;
 import org.wallpaperwizardapp.wallpaperwizard.model.ImageSaver;
+import org.wallpaperwizardapp.wallpaperwizard.util.FileHandler;
 
 import java.net.URISyntaxException;
-import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -29,6 +29,11 @@ public class ImageDownloader {
     private Path downloadedImagePath;
 
     /**
+     * a class that allows us to store a byte array to a file on the file system
+     */
+    private ImageSaver imageSaver;
+
+    /**
      * Constructor for ImageDownloader.
      *
      * @param restTemplate RestTemplate to make HTTP requests.
@@ -47,7 +52,10 @@ public class ImageDownloader {
      *      <code>false</code>: Failed to download image
      */
     @GetMapping("/downloadImage")
-    public boolean downloadImage(String imageUrl) {
+    public boolean downloadImage(String imageUrl, ImageSaver imageSaver) {
+
+        this.imageSaver = imageSaver;
+
         try {
             if (imageUrl==null)
                 throw new PathDoesNotExistException("[ImageDownloader] imageUrl can't be null");
@@ -55,14 +63,14 @@ public class ImageDownloader {
 
             String fileName = "";
             try {
-                fileName = getFileNameFromUrl(imageUrl);
+                fileName = FileHandler.getFileNameFromUrl(imageUrl);
                 System.out.println("[ImageDownloader] Extracted file name: " + fileName);
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
 
             if (imageBytes != null && fileName != null) {
-                this.downloadedImagePath = Paths.get(ImageSaver.saveToWallpapers(imageBytes, fileName));
+                this.downloadedImagePath = Paths.get(this.imageSaver.saveToWallpapers(imageBytes, fileName));
                 return true; //Image downloaded successfully
             }
         } catch (Exception e) {
@@ -78,18 +86,6 @@ public class ImageDownloader {
      */
     public Path getDownloadedImagePath() {
         return downloadedImagePath;
-    }
-
-    /**
-     * extract the fileName from the url
-     *
-     * @param url complete url of the image
-     * @return the file name
-     * @throws URISyntaxException
-     */
-    private String getFileNameFromUrl(String url) throws URISyntaxException {
-        URI uri = new URI(url);
-        return Paths.get(uri.getPath()).getFileName().toString();
     }
 
 }

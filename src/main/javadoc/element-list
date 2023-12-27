@@ -1,0 +1,7 @@
+org.wallpaperwizardapp.wallpaperwizard
+org.wallpaperwizardapp.wallpaperwizard.config
+org.wallpaperwizardapp.wallpaperwizard.controller
+org.wallpaperwizardapp.wallpaperwizard.exceptions
+org.wallpaperwizardapp.wallpaperwizard.model
+org.wallpaperwizardapp.wallpaperwizard.service
+org.wallpaperwizardapp.wallpaperwizard.util
