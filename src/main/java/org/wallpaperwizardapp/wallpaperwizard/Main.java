@@ -39,6 +39,7 @@ public class Main {
         imageDownloader.downloadImage(imageUrl, imageSaver);
 
         // Resize the image
+        // lockScale: True doesn't change the scale, false change the scale to match the screen sizes
         ImageResizer.resizeImage(imageSaver.getDownloadedImagePathString(), false);
 
         // Set the wallpaper
