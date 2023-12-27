@@ -56,7 +56,7 @@ To get started with Wallpaper Wizard, follow these steps:
 ### External libraries
 - [Java Native Access (JNA)](https://github.com/java-native-access/jna): provides Java programs easy access to native shared libraries without writing anything but Java code
 
-## future developments
+## Future developments
 - [ ] Give the possibility to choose the image of the day from multiple sites (example bing.com)
 - [ ] Add a graphical interface to simplify user interaction
 - [ ] Automate the application to change wallpaper every day
