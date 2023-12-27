@@ -1,24 +1,33 @@
 package org.wallpaperwizardapp.wallpaperwizard.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.wallpaperwizardapp.wallpaperwizard.config.APIKeyConfig;
+import org.wallpaperwizardapp.wallpaperwizard.exceptions.JsonHandlerException;
+import org.wallpaperwizardapp.wallpaperwizard.util.JsonHandler;
 
+/**
+ * Service class that manage the NASA API
+ */
 @Service
 public class NasaAPIService {
 
+    /**
+     * provides a high-level API for interacting with RESTful services
+     */
     private final RestTemplate restTemplate;
-
-    private static final String APOD_BASE_URL = "https://api.nasa.gov/planetary/apod";
 
     /**
      * the APIKeyConfig class loads API keys from environment variables
      */
-    private APIKeyConfig apiKeyConfig;
+    private final APIKeyConfig apiKeyConfig;
+
+    /**
+     * Base Url of the Astronomy Photography Of the Day (APOD)
+     */
+    private static final String APOD_BASE_URL = "https://api.nasa.gov/planetary/apod";
 
     @Autowired
     public NasaAPIService(APIKeyConfig apiKeyConfig, RestTemplate restTemplate) {
@@ -26,33 +35,43 @@ public class NasaAPIService {
         this.restTemplate = restTemplate;
     }
 
-    public String getImageOfTheDayUrl() throws JsonProcessingException {
+    /**
+     * get the Json response of the Astronomy Photography Of the Day from the Nasa API
+     * and extract the url of the image
+     *
+     * @param hd high definition
+     * @return url of the image
+     * @throws JsonProcessingException
+     */
+    public String getImageOfTheDayUrl(boolean hd) {
         String apiUrl = APOD_BASE_URL + "?api_key=" + apiKeyConfig.getNasaApiKey();
         String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
-        System.out.println("json response: " + jsonResponse);
-        return extractImageUrl(jsonResponse);
+        // Extract the image URL from the response (JSON parsing)
+        String output = "";
+        try {
+            output = (hd) ?
+                    JsonHandler.jsonExtractKey("hdurl", jsonResponse) : // hd url
+                    JsonHandler.jsonExtractKey("url", jsonResponse); // no hd url
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (JsonHandlerException e) {
+            e.printStackTrace();
+        }  catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            return output;
+        }
     }
 
     /**
-     *  Extract the image URL from the response (JSON parsing)
+     * get the Json response of the Astronomy Photography Of the Day from the Nasa API in HD (default)
+     * and extract the url of the image
      *
-     * @param jsonResponse
-     * @return
+     * @return url of the image
+     * @throws JsonProcessingException
      */
-    private String extractImageUrl(String jsonResponse) throws JsonProcessingException {
-
-        // Create ObjectMapper instance (Jackson's object mapper)
-        ObjectMapper mapper = new ObjectMapper();
-
-        // Read JSON string and map it to a JsonNode object
-        JsonNode jsonNode = mapper.readTree(jsonResponse);
-
-        // Extract the "url" field from the JSON response
-        String imageUrl = jsonNode.get("url").asText();
-
-        System.out.println("Image URL: " + imageUrl);
-
-        return imageUrl;
+    public String getImageOfTheDayUrl() {
+        return getImageOfTheDayUrl(true);
     }
 
 }
